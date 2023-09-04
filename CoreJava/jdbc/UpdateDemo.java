@@ -12,12 +12,11 @@ public class UpdateDemo {
         String name=s.next();
         
         try {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            con=DriverManager.
-                    getConnection("jdbc:oracle:thin:@localhost:1521:orcl", 
-                    "hr", "hr");
-            
-            String str="Update empl  set empname = ? where empid=?";
+        	Class.forName("com.mysql.cj.jdbc.Driver"); 
+       	 con=DriverManager.getConnection(  
+					"jdbc:mysql://localhost:3306/studentdetail","root","Comnet@123");  
+
+            String str="Update student  set name = ? where rollno=?";
             ps=con.prepareStatement(str);
             ps.setString(1, name);
             ps.setInt(2, id);
