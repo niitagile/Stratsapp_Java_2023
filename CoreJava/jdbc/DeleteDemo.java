@@ -10,16 +10,20 @@ public class DeleteDemo {
         int id=s.nextInt();
         
         try {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/orcl", "scott", "tiger");
+        	Class.forName("com.mysql.cj.jdbc.Driver"); 
+       	 con=DriverManager.getConnection(  
+					"jdbc:mysql://localhost:3306/studentdetail","root","Comnet@123");  
+
             
-            String str="Delete from student  where id=?";
+            String str="Delete from student  where rollno=?";
             ps=con.prepareStatement(str);
             ps.setInt(1, id);
             int ans=ps.executeUpdate();
             
             if (ans>0)
             System.out.println("Record Deleted");
+            else
+            	System.out.println("Record not found");
             
         } catch (Exception e) {
             System.out.println("Problem");
