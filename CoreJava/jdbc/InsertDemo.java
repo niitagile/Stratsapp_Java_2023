@@ -13,19 +13,19 @@ public class InsertDemo {
         System.out.print("Enter Name : ");
         String name=s.next();
         System.out.print("Enter english marks : ");
-        int age=s.nextInt();
+        int marks=s.nextInt();
         
         try {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            con=DriverManager.
-                    getConnection("jdbc:oracle:thin:@localhost:1521:orcl", 
-                    "hr", "hr");
+        	Class.forName("com.mysql.cj.jdbc.Driver"); 
+        	 con=DriverManager.getConnection(  
+					"jdbc:mysql://localhost:3306/studentdetail","root","Comnet@123");  
+
             
-            String str="Insert into student(rollno,stud_name, english) values(?,?,?)";
+            String str="Insert into student(rollno,name, marks) values(?,?,?)";
             ps=con.prepareStatement(str);
             ps.setInt(1, id);
             ps.setString(2, name);
-            ps.setInt(3, age);
+            ps.setInt(3, marks);
             int ans =ps.executeUpdate();
             if(ans>0)
             	System.out.println("Record inserted");
