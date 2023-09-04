@@ -53,7 +53,7 @@ public class StudentView {
 			dob = new SimpleDateFormat("yyyy-MM-dd").parse(sc.nextLine());
 
 			student = new Student(rollno, name, dob);
-			result = studentctrl.insertRecord(student);
+			
 			result = studentctrl.updateRecord(student);
 			if (result > 0)
 				System.out.println("Record updated");
