@@ -9,30 +9,32 @@ import java.util.concurrent.TimeUnit;
  class ExampleCallable implements Callable {
 
 	  private final String name;
-	  private final int len;
+	 
 	  private int sum = 0;
 
-	  public ExampleCallable(String name, int len) {
+	  public ExampleCallable(String name) {
 	    this.name = name;
-	    this.len = len;
+	    
 	  }
 
 	  @Override
 	  public String call() throws Exception {
-	    for (int i = 0; i < len; i++) {
+	    for (int i = 0; i < name.length(); i++) {
 	      //System.out.println(name + ":" + i);
 	      sum += i;
 	    }
 	    return "sum: " + sum;
 	  }
+
+	  
 	}
 
 public class ExecutorExample {
 	public static void main(String[] args) {
 
 		  ExecutorService es = Executors.newFixedThreadPool(2);
-		  Future<String> f1 = es.submit(new ExampleCallable("one",10));
-		  Future<String> f2 = es.submit(new ExampleCallable("two",20));
+		  Future<String> f1 = es.submit(new ExampleCallable("one"));
+		  Future<String> f2 = es.submit(new ExampleCallable("two"));
 
 		  try {
 		    es.shutdown();
