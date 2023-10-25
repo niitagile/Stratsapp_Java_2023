@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <h4>Add Fruits to Map</h4>
+    <button onclick="addFruit()">Add Fruit</button>
+    <p id="demo"></p>
+    <script>
+        const fruits = new Map();
+
+        function addFruit() {
+            const newKey = prompt("Enter the fruit name:");
+            const newValue = parseInt(prompt("Enter the price:"));
+
+            fruits.set(newKey, newValue);
+                displayFruits();
+        }
+
+        function displayFruits() {
+            let text = "";
+            fruits.forEach((value, key) =>
+                text += key + '=' + value + "<br>"
+            );
+            document.getElementById("demo").innerHTML = text;
+        }
+    </script>
+</body>
+</html>
