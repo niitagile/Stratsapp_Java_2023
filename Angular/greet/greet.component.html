@@ -1,0 +1,15 @@
+<p>greet works!</p>
+<!--{{name}} //interpolation
+<input type="text" [(ngModel)]="name">
+<button (click)="greet()">Click</button>
+
+<li *ngFor="let obj of productList">
+    {{obj.pname}}{{obj.price}}
+</li>-->
+
+<h1> Login Form</h1>
+<input type="text" [(ngModel)]="username">
+<input type="password" [(ngModel)]="password">
+<button (click)="validate()">Validate</button>
+{{msg}}
+<h1 [style.color]="status=='error' ? 'red': 'blue'">{{msg}}</h1> 
