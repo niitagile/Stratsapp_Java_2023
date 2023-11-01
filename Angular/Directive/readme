@@ -1,0 +1,14 @@
+Directives-- Classes
+DOM--> new elements or remove elements
+add new clases, attribute with elements
+
+3 types of directives- Structural, Components,Attribute
+
+Structural- which changes structure of DOM ngIf,ngFor
+
+Attribute - to add or remove new behaviour of element ngStyle, ngclasses
+
+Custom Directive
+1)create a class with @Directive
+2)Create an attribute directive with element ref
+3) HostListener
